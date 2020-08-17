@@ -1,3 +1,6 @@
+import {getCity,getweather} from './apiCalls.js'
+
+
 const cityForm = document.querySelector('form');
 const cards = document.querySelector('.card');
 const details = document.querySelector('.details');
@@ -37,7 +40,7 @@ const updateUI = (data) =>{
 
     time.setAttribute('src',imgUrl);
 
-    iconsrc = `/img/icons/${weather.WeatherIcon}.svg`
+    const iconsrc = `/img/icons/${weather.WeatherIcon}.svg`
 
     icon.setAttribute('src',iconsrc)
 

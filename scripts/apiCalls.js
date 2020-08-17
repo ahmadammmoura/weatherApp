@@ -24,6 +24,8 @@ const getweather = async (locationId) =>{
 
 }
 
+export {getweather , getCity}
+
 
 
 // getCity('amman')
