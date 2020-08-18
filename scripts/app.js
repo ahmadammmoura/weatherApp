@@ -57,5 +57,15 @@ cityForm.addEventListener('submit', e =>{
     ubdateCity(cityName)
         .then(data => updateUI(data))
 
+    
+    localStorage.setItem('city',cityName)
+
 })
+
+let cheackCity = localStorage.getItem('city')
+
+if(cheackCity){
+    ubdateCity(cheackCity)
+    .then(data => updateUI(data))
+}
 
