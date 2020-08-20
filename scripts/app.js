@@ -1,4 +1,6 @@
-import {getCity,getweather} from './apiCalls.js'
+import {Apicalls} from './apiCalls.js'
+
+const Apicall = new Apicalls()
 
 
 const cityForm = document.querySelector('form');
@@ -7,15 +9,6 @@ const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 
-const ubdateCity = async (city) => {
-
-    const Citydets = await getCity(city)
-    const weather = await getweather(Citydets.Key)
-
-    
-    return { Citydets , weather } 
-
-}
 
 const updateUI = (data) =>{
 
@@ -54,7 +47,7 @@ cityForm.addEventListener('submit', e =>{
 
     cityForm.reset()
 
-    ubdateCity(cityName)
+    Apicall.ubdateCity(cityName)
         .then(data => updateUI(data))
 
     
@@ -65,7 +58,7 @@ cityForm.addEventListener('submit', e =>{
 let cheackCity = localStorage.getItem('city')
 
 if(cheackCity){
-    ubdateCity(cheackCity)
+    Apicall.ubdateCity(cheackCity)
     .then(data => updateUI(data))
 }
 
